@@ -4,10 +4,13 @@ import ee
 import geemap.foliumap as geemap
 import streamlit as st
 import plotly.graph_objects as go
+from google.oauth2 import service_account
 
 
 # initialize the Earth Engine
-ee.Initialize()
+service_account_info = st.secrets["gee"]
+credentials = service_account.Credentials.from_service_account_info(service_account_info)
+ee.Initialize(credentials)
 st.set_page_config(
     page_title="SEED Index Visualizer 3000",
     page_icon="✅",
