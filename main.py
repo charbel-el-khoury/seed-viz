@@ -1,8 +1,5 @@
-import matplotlib.pyplot as plt
-import numpy as np
-import plotly.express as px
 import folium
-from streamlit_folium import st_folium, folium_static
+from streamlit_folium import st_folium
 import ee
 import geemap.foliumap as geemap
 import streamlit as st
