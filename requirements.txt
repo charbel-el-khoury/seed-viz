@@ -1,0 +1,7 @@
+folium
+streamlit_folium 
+earthengine-api
+geemap
+streamlit
+plotly
+
