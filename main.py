@@ -17,7 +17,7 @@ from google.oauth2 import service_account
 service_account_email = "seed-viz-runner-streamlit@ee-seed-zh.iam.gserviceaccount.com"
 json = st.secrets["gee"]
 
-credentials = ee.serviceAccountToCredentials(service_account_email, json)
+credentials = ee.ServiceAccountCredentials(service_account_email, json)
 ee.Initialize()
 st.set_page_config(
     page_title="SEED Index Visualizer 3000",
