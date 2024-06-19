@@ -56,7 +56,9 @@ st.title('SEED Index Visualizer')
 col1, col2 = st.columns([4, 2])
 with col1:
     # with st.form(key='aa'):
+    folium.LayerControl().add_to(Map)
     map_data = st_folium(Map, width=1000, height=700)
+    
         # st.form_submit_button(label='Submit')
 st.markdown("for complaints please contact: [Robert McElderry](https://picsum.photos/2000)")
 st.image('figs/ETH+CL Logo_white+yellow.png', width= 300)
