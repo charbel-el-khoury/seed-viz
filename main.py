@@ -8,9 +8,16 @@ from google.oauth2 import service_account
 
 
 # initialize the Earth Engine
-service_account_info = st.secrets["gee"]
-credentials = service_account.Credentials.from_service_account_info(service_account_info)
-ee.Initialize(credentials)
+# service_account_info = st.secrets["gee"]
+# st.write(service_account_info)
+# credentials = service_account.Credentials.from_service_account_info(service_account_info)
+# ee.Initialize(credentials)
+
+
+service_account_email = "seed-viz-runner-streamlit@ee-seed-zh.iam.gserviceaccount.com"
+json = st.secrets["gee"]
+credentials = ee.serviceAccountToCredentials(service_account_email, json)
+ee.Initialize()
 st.set_page_config(
     page_title="SEED Index Visualizer 3000",
     page_icon="✅",
