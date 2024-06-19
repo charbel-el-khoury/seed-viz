@@ -56,7 +56,6 @@ st.title('SEED Index Visualizer')
 col1, col2 = st.columns([4, 2])
 with col1:
     with st.form(key='my_form'):
-        folium.LayerControl().add_to(Map)
         
         map_data = st_folium(Map, width=1200, height=700)
         st.form_submit_button(label='Submit')
