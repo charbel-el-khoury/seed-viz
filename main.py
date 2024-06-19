@@ -53,7 +53,7 @@ Map.addLayer(im_with_all_bands.select('6_Seed Index'), vis_params, name='Seed In
 # Display elements on the Streamlit app
 
 st.title('SEED Index Visualizer')
-col1, col2 = st.columns([4, 2])
+col1, col2 = st.columns([4, 3])
 with col1:
     with st.form(key='aa'):
         folium.LayerControl().add_to(Map)
