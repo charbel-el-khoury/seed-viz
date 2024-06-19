@@ -68,6 +68,7 @@ st.image('figs/restor.png', width=70)
 with col2:
 
     def handle_click(lat, lon):
+        pt = folium.Marker([lat, lon], icon=folium.Icon(color='red')).add_to(Map)
         point = ee.Geometry.Point([lon, lat])
         dataset = im_with_all_bands
         value = dataset.reduceRegion(ee.Reducer.mean(), point, 500).getInfo()
