@@ -16,7 +16,6 @@ from google.oauth2 import service_account
 
 service_account_email = "seed-viz-runner-streamlit@ee-seed-zh.iam.gserviceaccount.com"
 json = st.secrets["gee"]
-st.write(json)
 
 credentials = ee.serviceAccountToCredentials(service_account_email, json)
 ee.Initialize()
