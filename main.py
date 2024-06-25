@@ -25,7 +25,7 @@ st.set_page_config(
     page_icon="✅",
     layout="wide",
 )
-image = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/FelixMacStudio/2024-05-29/18-10-00/output/ecosystem_connectivity_kernel").rename("Ecosystem Connectivity")
+image = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/FelixMacStudio/2024-06-21/15-50-12/output/ecosystem_connectivity_kernel").rename("Ecosystem Connectivity")
 image2 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/FelixMacStudio/2024-05-29/18-10-00/output/ecosystem_function_kernel").rename("Ecosystem Function")
 image3 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/FelixMacStudio/2024-05-29/18-10-00/output/ecosystem_structure_kernel").rename("Ecosystem Structure")
 image4 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/FelixMacStudio/2024-05-29/18-10-00/output/genetic_animals_kernel").rename("Genetic Animals")
