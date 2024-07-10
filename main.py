@@ -18,16 +18,16 @@ st.set_page_config(
     page_icon="✅",
     layout="wide",
 )
-image = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/priyanka/2024-06-21/15-50-12/output/ecosystem_connectivity_kernel").rename("Ecosystem Connectivity")
-image2 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/priyanka/2024-06-21/15-50-12/output/ecosystem_function_kernel").rename("Ecosystem Function")
-image3 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/priyanka/2024-06-21/15-50-12/output/ecosystem_structure_kernel").rename("Ecosystem Structure")
-image4 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/priyanka/2024-06-21/15-50-12/output/genetic_animals_kernel").rename("Genetic Animals")
-image5 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/priyanka/2024-06-21/15-50-12/output/genetic_microbes_kernel").rename("Genetic Microbes")
-image6 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/priyanka/2024-06-21/15-50-12/output/genetic_plants_kernel").rename("Genetic Plants")
-image8 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/priyanka/2024-06-21/15-50-12/output/species_animals_kernel").rename("Species Animals")
-image9 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/priyanka/2024-06-21/15-50-12/output/species_microbes_kernel").rename("Species Microbes")
-image10 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/priyanka/2024-06-21/15-50-12/output/species_plants_kernel").rename("Species Plants")
-image7 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/priyanka/2024-06-21/15-50-12/output/seed_index_kernel").rename("Seed Index")
+image = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/FelixMacStudio/2024-05-29/18-10-00/output/ecosystem_connectivity_kernel").rename("Ecosystem Connectivity")
+image2 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/FelixMacStudio/2024-05-29/18-10-00/output/ecosystem_function_kernel").rename("Ecosystem Function")
+image3 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/FelixMacStudio/2024-05-29/18-10-00/output/ecosystem_structure_kernel").rename("Ecosystem Structure")
+image4 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/FelixMacStudio/2024-05-29/18-10-00/output/genetic_animals_kernel").rename("Genetic Animals")
+image5 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/FelixMacStudio/2024-05-29/18-10-00/output/genetic_microbes_kernel").rename("Genetic Microbes")
+image6 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/FelixMacStudio/2024-05-29/18-10-00/output/genetic_plants_kernel").rename("Genetic Plants")
+image8 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/FelixMacStudio/2024-05-29/18-10-00/output/species_animals_kernel").rename("Species Animals")
+image9 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/FelixMacStudio/2024-05-29/18-10-00/output/species_microbes_kernel").rename("Species Microbes")
+image10 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/FelixMacStudio/2024-05-29/18-10-00/output/species_plants_kernel").rename("Species Plants")
+image7 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/FelixMacStudio/2024-05-29/18-10-00/output/seed_index_kernel").rename("Seed Index")
 
 im_with_all_bands = ee.ImageCollection.toBands([image, image2, image3, image4, image5, image6, image7, image8, image9, image10])
 bands = im_with_all_bands.bandNames().getInfo()
@@ -46,23 +46,23 @@ Map.addLayer(im_with_all_bands.select('6_Seed Index'), vis_params, name='Seed In
 # Display elements on the Streamlit app
 
 st.title('SEED Index Visualizer')
-col1, col2 = st.columns([4, 3])
+col1, col2 = st.columns([4, 2])
 with col1:
-    # with st.form(key='my_form'):
-    folium.LayerControl().add_to(Map)
-    
-    map_data = st_folium(Map, width=1200, height=700)
-        # st.form_submit_button(label='Submit')
+    with st.form(key='my_form'):
+        folium.LayerControl().add_to(Map)
+        
+        map_data = st_folium(Map, width=1200, height=700)
+        st.form_submit_button(label='Submit')
 
-st.markdown("for complaints please contact: [Robert McElderry](https://picsum.photos/2000)")
-st.image('figs/ETH+CL Logo_white+yellow.png', width= 300)
-st.image("figs/AQJU2073.JPG", width=70)
-st.image('figs/restor.png', width=70)
+    st.markdown("for complaints please contact: [Robert McElderry](https://picsum.photos/2000)")
+    st.image('figs/ETH+CL Logo_white+yellow.png', width= 300)
+
+    st.image("figs/AQJU2073.JPG", width=70)
+    st.image('figs/restor.png', width=70)
 
 with col2:
 
     def handle_click(lat, lon):
-        pt = folium.Marker([lat, lon], icon=folium.Icon(color='red')).add_to(Map)
         point = ee.Geometry.Point([lon, lat])
         dataset = im_with_all_bands
         value = dataset.reduceRegion(ee.Reducer.mean(), point, 500).getInfo()
