@@ -60,7 +60,10 @@ with col1:
     map_data = st_folium(Map, width=1000, height=700)
         # st.form_submit_button(label='Submit')
 
-
+# st.markdown("for complaints please contact: [Robert McElderry](https://picsum.photos/2000)")
+st.image('figs/ETH+CL Logo_white+yellow.png', width= 300)
+st.image("figs/AQJU2073.JPG", width=70)
+st.image('figs/restor.png', width=70)
 
 with col2:
 
