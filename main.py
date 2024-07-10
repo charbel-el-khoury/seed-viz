@@ -8,17 +8,10 @@ from google.oauth2 import service_account
 
 
 # initialize the Earth Engine
-# service_account_info = st.secrets["gee"]
-# st.write(service_account_info)
-# credentials = service_account.Credentials.from_service_account_info(service_account_info)
-# ee.Initialize(credentials)
-
-
 service_account_email = "seed-viz-runner-streamlit@ee-seed-zh.iam.gserviceaccount.com"
 json = st.secrets["gee"]
-email = json["client_email"]
-key = json["private_key"]
-credentials = ee.ServiceAccountCredentials(email=email, key_data=key)
+credentials = ee.serviceAccountToCredentials(service_account_email, json)
+
 ee.Initialize(credentials)
 st.set_page_config(
     page_title="SEED Index Visualizer 3000",
@@ -55,10 +48,11 @@ Map.addLayer(im_with_all_bands.select('6_Seed Index'), vis_params, name='Seed In
 st.title('SEED Index Visualizer')
 col1, col2 = st.columns([4, 3])
 with col1:
-    with st.form(key='aa'):
-        folium.LayerControl().add_to(Map)
-        map_data = st_folium(Map, width=1000, height=700)
-        st.form_submit_button(label='Submit')
+    # with st.form(key='my_form'):
+    folium.LayerControl().add_to(Map)
+    
+    map_data = st_folium(Map, width=1200, height=700)
+        # st.form_submit_button(label='Submit')
 
 st.markdown("for complaints please contact: [Robert McElderry](https://picsum.photos/2000)")
 st.image('figs/ETH+CL Logo_white+yellow.png', width= 300)
