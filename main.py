@@ -36,7 +36,7 @@ image9 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPEL
 image10 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/priyanka/2024-06-21/15-50-12/output/species_plants_kernel").rename("Species Plants")
 image7 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/priyanka/2024-06-21/15-50-12/output/seed_index_kernel").rename("Seed Index")
 
-im_with_all_bands = ee.ImageCollection.toBands([image, image2, image3, image4, image5, image6, image7, image8, image9, image10])
+im_with_all_bands = ee.ImageCollection([image, image2, image3, image4, image5, image6, image7, image8, image9, image10]).toBands()
 bands = im_with_all_bands.bandNames().getInfo()
 
 Map = geemap.Map()
