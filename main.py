@@ -82,7 +82,7 @@ with col2:
     if map_data['last_clicked']:
         lat = map_data['last_clicked']['lat']
         lon = map_data['last_clicked']['lng']
-        st.write(f"Latitude: {lat}, Longitude: {lon}")
+        st.write(f"Longitude: {lon}, Latitude: {lat}")
         axes_values = handle_click(lat, lon)
         seed_index = axes_values["6_Seed Index"]
 
