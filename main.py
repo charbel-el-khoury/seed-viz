@@ -25,16 +25,18 @@ st.set_page_config(
     page_icon="✅",
     layout="wide",
 )
-image = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/priyanka/2024-06-21/15-50-12/output/ecosystem_connectivity_kernel").rename("Ecosystem Connectivity")
-image2 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/priyanka/2024-06-21/15-50-12/output/ecosystem_function_kernel").rename("Ecosystem Function")
-image3 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/priyanka/2024-06-21/15-50-12/output/ecosystem_structure_kernel").rename("Ecosystem Structure")
-image4 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/priyanka/2024-06-21/15-50-12/output/genetic_animals_kernel").rename("Genetic Animals")
-image5 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/priyanka/2024-06-21/15-50-12/output/genetic_microbes_kernel").rename("Genetic Microbes")
-image6 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/priyanka/2024-06-21/15-50-12/output/genetic_plants_kernel").rename("Genetic Plants")
-image8 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/priyanka/2024-06-21/15-50-12/output/species_animals_kernel").rename("Species Animals")
-image9 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/priyanka/2024-06-21/15-50-12/output/species_microbes_kernel").rename("Species Microbes")
-image10 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/priyanka/2024-06-21/15-50-12/output/species_plants_kernel").rename("Species Plants")
-image7 = ee.Image("projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_RUNS/v1_2_0/priyanka/2024-06-21/15-50-12/output/seed_index_kernel").rename("Seed Index")
+
+base_path = "projects/ee-speckerfelix/assets/seed_pipeline_temporary/PIPELINE_ARCHIVE/SEED_Breakathon/"
+image = ee.Image(base_path + "ecosystem_connectivity_kernel").rename("Ecosystem Connectivity")
+image2 = ee.Image(base_path + "ecosystem_function_kernel").rename("Ecosystem Function")
+image3 = ee.Image(base_path + "ecosystem_structure_kernel").rename("Ecosystem Structure")
+image4 = ee.Image(base_path + "genetic_animals_kernel").rename("Genetic Animals")
+image5 = ee.Image(base_path + "genetic_microbes_kernel").rename("Genetic Microbes")
+image6 = ee.Image(base_path + "genetic_plants_kernel").rename("Genetic Plants")
+image8 = ee.Image(base_path + "species_animals_kernel").rename("Species Animals")
+image9 = ee.Image(base_path + "species_microbes_kernel").rename("Species Microbes")
+image10 = ee.Image(base_path + "species_plants_kernel").rename("Species Plants")
+image7 = ee.Image(base_path + "seed_index_kernel").rename("Seed Index")
 
 im_with_all_bands = ee.ImageCollection([image, image2, image3, image4, image5, image6, image7, image8, image9, image10]).toBands()
 bands = im_with_all_bands.bandNames().getInfo()
