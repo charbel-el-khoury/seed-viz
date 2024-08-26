@@ -63,6 +63,8 @@ with col1:
         # st.form_submit_button(label='Submit')
 
 # st.markdown("for complaints please contact: [Robert McElderry](https://picsum.photos/2000)")
+link = "https://docs.google.com/forms/d/e/1FAIpQLSfad5nKO8jaYI1bAS2mUc52omHp2PN7G06itMtBg642FTFc4Q/viewform?usp=sharing"
+st.write(f"In case you find an issue please report it using this [link]({link})")
 st.image('figs/ETH+CL Logo_white+yellow.png', width= 300)
 st.image("figs/AQJU2073.JPG", width=70)
 st.image('figs/restor.png', width=70)
